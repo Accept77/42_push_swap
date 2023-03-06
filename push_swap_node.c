@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 17:52:45 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/02/28 02:35:46 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:00:03 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ps_new_node(long long data)
 	t_list	*new;
 
 	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
 	new->data = data;
 	new->pre = NULL;
 	new->next = NULL;
@@ -61,7 +63,6 @@ void	ps_make_lst(long long data, t_list *top_a, t_list *top_b)
 	tmp = top_a;
 	if (!(data <= 2147483647 && data >= -2147483648))
 		ps_free_exit(top_a, top_b);
-	new = ps_new_node(data);
 	while (tmp->next != NULL)
 	{
 		pre = tmp;
@@ -69,6 +70,14 @@ void	ps_make_lst(long long data, t_list *top_a, t_list *top_b)
 			ps_free_exit(top_a, top_b);
 		tmp = tmp->next;
 	}
+//	if (tmp->pre == NULL && tmp->next == NULL && tmp->data == 0)
+//	{
+//		tmp->data = data;
+//		return ;
+//	} start top_a
+	new = ps_new_node(data);
+	if (!new)
+		ps_free_exit(top_a, top_b);
 	tmp->next = new;
 	new->pre = pre;
 }
