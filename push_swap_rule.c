@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 02:37:33 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/06 19:28:11 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:05:21 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@
 //- ss : sa와 sb를 모두 수행합니다.
 //- pa : 스택 B의 가장 위에 있는 요소를 스택 A의 가장 위에 넣습니다.
 //- pb : 스택 A의 가장 위에 있는 요소를 스택 B의 가장 위에 넣습니다.
-//- ra : 스택 A의 모든 요소를 위로 한 칸씩 이동시키고 첫 번째 요소를 마지막에 넣습니다.
-//- rb : 스택 B의 모든 요소를 위로 한 칸씩 이동시키고 첫 번째 요소를 마지막에 넣습니다.
-//- rr : ra와 rb를 모두 수행합니다.
-//- rra : 스택 A의 모든 요소를 아래로 한 칸씩 이동시키고 마지막 요소를 첫 번째에 넣습니다.
-//- rrb : 스택 B의 모든 요소를 아래로 한 칸씩 이동시키고 마지막 요소를 첫 번째에 넣습니다.
-//- rrr : rra와 rrb를 모두 수행합니다.
-//
 
 void	ps_sab(t_list *top, char what)
 {
@@ -45,7 +38,7 @@ void	ps_sab(t_list *top, char what)
 	next->next = tmp;
 	if (tmp->next != NULL)
 	{
-		next_next = next->next;
+		next_next = tmp->next;
 		next_next->pre = tmp;
 	}
 	if (what != 'n')
@@ -86,16 +79,3 @@ void	ps_pab(t_list *top, t_list *move, char what)
 	tmp->pre = top;
 	ft_printf("p%c\n", what);
 }
-
-void	ps_rab(t_list *top, char what)
-{
-	t_list	*tmp;
-
-	tmp = top->next;
-
-
-}
-
-//void	ps_rrab(t_list *top, char what)
-//{
-//}

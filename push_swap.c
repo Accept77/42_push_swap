@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:02:53 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/06 19:20:15 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:25:37 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,44 @@ void	check_leak(void)
 void print(t_list *top_a)
 {
 	t_list *tmp;
+	int count;
 
 	tmp = top_a;
+	count = 0;
 	while (tmp->next != NULL)
 	{
-		ft_printf("%d\n",tmp->data);
+		ft_printf("index : %d / data : %d\n",count, tmp->data);
 		tmp = tmp->next;
+		count++;
 	}
-	ft_printf("%d\n\n",tmp->data);
+	ft_printf("index : %d / data : %d\n\n",count, tmp->data);
+}
+
+void print_rev(t_list *top_a)
+{
+	t_list	*tmp;
+	int count;
+
+	tmp = top_a;
+	count = 0;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+		count++;
+	}
+	while (tmp->pre != NULL)
+	{
+		ft_printf("index : %d / data : %d\n",count, tmp->data);
+		tmp = tmp->pre;
+		count--;
+	}
+	ft_printf("index : %d / data : %d\n\n",count, tmp->data);
+}
+
+void print_all(t_list *top)
+{
+	print(top);
+	print_rev(top);
 }
 
 int	main(int argc, char **argv)
@@ -40,12 +70,6 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	ps_pasing(argv, top_a, top_b);
-	print(top_a);
-	print(top_b);
-	ps_pab(top_b, top_a, 'b');
-	print(top_a);
-	print(top_b);
-	ps_pab(top_a, top_b, 'a');
 	print(top_a);
 	print(top_b);
 //	atexit(check_leak);

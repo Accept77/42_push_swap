@@ -6,7 +6,7 @@
 #    By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 20:00:00 by jinsyang          #+#    #+#              #
-#    Updated: 2023/03/06 15:11:15 by jinsyang         ###   ########.fr        #
+#    Updated: 2023/03/08 13:08:32 by jinsyang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_M = push_swap.c push_swap_utils.c push_swap_node.c push_swap_rule.c ft_printaddress.c ft_printf_char.c ft_printf.c ft_printf_nbr.c
+SRC_M = push_swap.c push_swap_utils.c push_swap_node.c push_swap_rule.c push_swap_rule2.c ft_printaddress.c ft_printf_char.c ft_printf.c ft_printf_nbr.c
 
 OBJ_M = $(SRC_M:.c=.o)
 

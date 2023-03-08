@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:03:40 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/06 17:47:47 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:29:17 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ void		ps_free_exit(t_list *top_a, t_list *top_b);
 void		ps_make_lst(long long data, t_list *top_a, t_list *top_b);
 void		ps_sab(t_list *top, char what);
 void		ps_pab(t_list *top, t_list *move, char what);
+void		ps_rab(t_list *top, char what);
+void		ps_rrab(t_list *top, char what);
 
 #endif

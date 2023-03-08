@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 17:52:45 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/06 15:00:03 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:36:24 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,12 @@ void	ps_make_lst(long long data, t_list *top_a, t_list *top_b)
 {
 	t_list	*new;
 	t_list	*tmp;
-	t_list	*pre;
 
 	tmp = top_a;
 	if (!(data <= 2147483647 && data >= -2147483648))
 		ps_free_exit(top_a, top_b);
 	while (tmp->next != NULL)
 	{
-		pre = tmp;
 		if (tmp->data == (int)data)
 			ps_free_exit(top_a, top_b);
 		tmp = tmp->next;
@@ -79,5 +77,5 @@ void	ps_make_lst(long long data, t_list *top_a, t_list *top_b)
 	if (!new)
 		ps_free_exit(top_a, top_b);
 	tmp->next = new;
-	new->pre = pre;
+	new->pre = tmp;
 }
