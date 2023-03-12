@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:02:53 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/08 19:25:37 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:41:02 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	ps_pasing(argv, top_a, top_b);
+	print(top_a);
+	print(top_b);
+	swap(top_a, top_b, argc);
 	print(top_a);
 	print(top_b);
 //	atexit(check_leak);
