@@ -6,41 +6,56 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 14:05:11 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/12 19:41:23 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/15 20:03:03 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pivot(t_list *top_a, t_list *top_b, int size)
+int	pivot(t_stack *stack_a, t_stack *stack_b, int count)
 {
 	t_list	*tmp;
 	t_list	*next;
 	int		pivot;
-	int		count;
+	int		i;
+	int		re;
 
-	tmp = top_a->next;
-	count = 0;
-	while (tmp->next != NULL)
+	tmp = stack_a->next;
+	i = 0;
+	re = 0;
+	while (re < count - 1 && tmp->next != NULL)
+	{
 		tmp = tmp->next;
+		re++;
+	}
 	pivot = tmp->data;
-	tmp = top_a->next;
-	while (count < size)
+	tmp = stack_a->next;
+	while (i < count)
 	{
 		next = tmp->next;
 		if (tmp->data > pivot)
-			ps_pab(top_b, top_a, 'b');
+		{
+			ps_pab(stack_b, stack_a, 'b');
+			re--;
+		}
 		else
-			ps_rab(top_a, 'a');
+			ps_rab(stack_a, 'a');
 		tmp = next;
-		count++;
+		i++;
 	}
+	return (re);
 }
 
-void swap(t_list *top_a, t_list *top_b, int argc)
+void	swap(t_stack *stack_a, t_stack *stack_b, int argc)
 {
-	int	size;
+	int	count;
 
-	size = argc - 1;
-	pivot(top_a, top_b, size);
+	count = argc - 1;
+	count = pivot(stack_a, stack_b, count);
+	count = pivot(stack_a, stack_b, count);
 }
+
+// size-1 까지 돌리면 멘뒤 뺴고 가능 분류는?
+// 1 5 7 8 3 6 2 4
+// 아니면 옮기면서 같이 정렬? 처음 들어간 값을 피벗으로 정하고 큰값 왼 작은값 오?
+// 피벗 지정 방법

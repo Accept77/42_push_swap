@@ -6,13 +6,13 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:30:45 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/02/28 02:29:52 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:10:22 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ps_pasing(char **argv, t_list *top_a, t_list *top_b)
+void	ps_pasing(char **argv, t_stack *stack_a, t_stack *stack_b)
 {
 	int			i;
 	int			j;
@@ -30,7 +30,7 @@ void	ps_pasing(char **argv, t_list *top_a, t_list *top_b)
 			{
 				tmp = ps_strdup(argv[i], j, size);
 				size = -1;
-				ps_make_lst(ps_atoi(tmp), top_a, top_b);
+				ps_make_lst(ps_atoi(tmp), stack_a, stack_b);
 				free(tmp);
 			}
 			size++;

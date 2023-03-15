@@ -6,33 +6,27 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 02:37:33 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/08 14:05:21 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:34:42 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//- sa : 스택 A의 가장 위에 있는 두 개의 요소를 서로 바꿉니다.
-//- sb : 스택 B의 가장 위에 있는 두 개의 요소를 서로 바꿉니다.
-//- ss : sa와 sb를 모두 수행합니다.
-//- pa : 스택 B의 가장 위에 있는 요소를 스택 A의 가장 위에 넣습니다.
-//- pb : 스택 A의 가장 위에 있는 요소를 스택 B의 가장 위에 넣습니다.
-
-void	ps_sab(t_list *top, char what)
+void	ps_sab(t_stack *stack, char what)
 {
 	t_list	*tmp;
 	t_list	*next;
 	t_list	*next_next;
 
-	if (top->next == NULL || top->next->next == NULL)
+	if (stack->next == NULL || stack->next->next == NULL)
 	{
 		ft_printf("sab problem!!!!!\n");
 		exit(0);
 	}
-	tmp = top->next;
+	tmp = stack->next;
 	next = tmp->next;
-	top->next = next;
-	next->pre = top;
+	stack->next = next;
+	next->pre = NULL;
 	tmp->pre = next;
 	tmp->next = next->next;
 	next->next = tmp;
@@ -41,18 +35,18 @@ void	ps_sab(t_list *top, char what)
 		next_next = tmp->next;
 		next_next->pre = tmp;
 	}
-	if (what != 'n')
+	if (what == 'n')
 		ft_printf("s%c\n", what);
 }
 
-void	ps_ss(t_list *top_a, t_list *top_b)
+void	ps_ss(t_stack *stack_a, t_stack *stack_b)
 {
-	ps_sab(top_a, 'n');
-	ps_sab(top_b, 'n');
+	ps_sab(stack_a, 'n');
+	ps_sab(stack_b, 'n');
 	ft_printf("ss\n");
 }
 
-void	ps_pab(t_list *top, t_list *move, char what)
+void	ps_pab(t_stack *stay, t_stack *move, char what)
 {
 	t_list	*tmp;
 	t_list	*next;
@@ -66,16 +60,16 @@ void	ps_pab(t_list *top, t_list *move, char what)
 	if (tmp->next != NULL)
 	{
 		next = tmp->next;
-		next->pre = move;
+		next->pre = NULL;
 	}
 	move->next = tmp->next;
-	if (top->next != NULL)
+	if (stay->next != NULL)
 	{
-		next = top->next;
+		next = stay->next;
 		next->pre = tmp;
 	}
-	tmp->next = top->next;
-	top->next = tmp;
-	tmp->pre = top;
+	tmp->next = stay->next;
+	stay->next = tmp;
+	tmp->pre = NULL;
 	ft_printf("p%c\n", what);
 }
