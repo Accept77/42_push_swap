@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:03:40 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/17 18:27:36 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:22:57 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void		ps_sab(t_stack *stack, char what);
 void		ps_pab(t_stack *stay, t_stack *move, char what);
 void		ps_rab(t_stack *stack, char what);
 void		ps_rrab(t_stack *stack, char what);
-void		swap(t_stack *stack_a, t_stack *stack_b, int argc);
+
 void		ps_top_reset(t_stack *stack);
-int	partition(t_stack *stack_a, t_stack *stack_b, int left, int right);
-void		quicksort(t_stack *stack_a, t_stack *stack_b, int left, int right);
+void		sort_stack(t_stack *stack_a, t_stack *stack_b, int left, int right);
 
 #endif
+ 

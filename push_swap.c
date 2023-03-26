@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:02:53 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/17 18:25:27 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/26 17:22:01 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	ps_pasing(argv, &stack_a, &stack_b);
 	print(&stack_a);
 	print(&stack_b);
-	partition(&stack_a, &stack_b, 0, argc - 1);
+	sort_stack(&stack_a, &stack_b, 0, argc - 1);
 	print(&stack_a);
 	print(&stack_b);
 //	atexit(check_leak);
