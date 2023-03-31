@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:03:40 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/28 19:25:46 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/31 17:04:50 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct s_list {
 typedef struct s_stack {
 	t_list	*next;
 }	t_stack;
+
+void print(t_stack *stack);
 
 int			ft_printf(const char *str, ...);
 long long	ps_atoi(char *str);
