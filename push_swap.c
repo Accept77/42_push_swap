@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:02:53 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/28 19:35:35 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:07:55 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ int	main(int argc, char **argv)
 	print(&stack_a);
 	print(&stack_b);
 	sort_stack(&stack_a, &stack_b, argc - 1);
-	print(&stack_a);
-	print(&stack_b);
 //	atexit(check_leak);
 	return (0);
 }
