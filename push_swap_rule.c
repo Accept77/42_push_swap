@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 02:37:33 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/15 18:34:42 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/04/12 13:51:35 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ps_sab(t_stack *stack, char what)
 		next_next = tmp->next;
 		next_next->pre = tmp;
 	}
-	if (what == 'n')
+	if (what != 'n')
 		ft_printf("s%c\n", what);
 }
 

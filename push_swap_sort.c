@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 14:05:11 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/04/10 19:39:46 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/04/12 19:46:44 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,74 +40,74 @@ int	part(t_stack *stack_a, t_stack *stack_b, int size)
 	return (ra_count);
 }
 
-void	sort_a_3(t_stack *stack_a, t_stack *stack_b)
+void	sort_a_2(t_stack *stack)
 {
 	t_list	*tmp;
-	int		i;
 
-	tmp = stack_a->next;
-	i = 0;
-	
+	tmp = stack->next;
+	if (tmp->data > tmp->next->data)
+		ps_sab(stack, 'a');
 }
 
-void	sort_a_5(t_stack *stack_a, t_stack *stack_b)
+void	sort_a_3(t_stack *stack)
 {
 	t_list	*tmp;
-	int		flag;
-	int		max;
-	int		i;
 
-	tmp = stack_a->next;
-	flag = 0;
-	max = tmp->data;
-	i = 0;
-	while (tmp->next != NULL)
-	{
-		tmp = tmp->next;
-		if (max < tmp->data)
-			max = tmp->data;
-	}
-	while (i < 2)
+	tmp = stack->next;
+	if (tmp->data > tmp->next->data)
+		ps_sab(stack, 'a');
+	tmp = stack->next;
+	if (tmp->next->data > tmp->next->next->data)
+		ps_rrab(stack, 'a');
+	tmp = stack->next;
+	if (tmp->data > tmp->next->data)
+		ps_sab(stack, 'a');
+}
+
+void	sort_a_5(t_stack *stack_a, t_stack *stack_b, int size)
+{
+	t_list	*tmp_a;
+	t_list	*tmp_b;
+	int		size_b;
+
+	size_b = 0;
+	while (size != 3)
 	{
 		ps_pab(stack_b, stack_a, 'b');
-		if (stack_b->next->data == max)
-			flag = 1;
-		i++;
+		size--;
+		size_b++;
 	}
-	
+	sort_a_3(stack_a);
+	while (size_b)
+	{
+		tmp_a = stack_a->next;
+		tmp_b = stack_b->next;
+		while (tmp_a->next != NULL)
+		{
+			if (tmp_a->data > tmp_b->data);
+			끝자리 가면 생각해보기
+			tmp_a = tmp_a->next;
+		}
+		size_b--;
+	}
 }
 
-1 3 2 / 1 2 3 / 2 1 3 / 2 3 1 / 3 1 2 / 3 2 1
+1 2 3 / 5 4 아에 다 작거나
+3 4 5 / 1 2 이에 다 크거나
+1 4 5 / 3 2 그냥 노말
+1 3 5 / 2 4 중간에 넣어야 하거나
+어쨋든 스택 뒤에 있는거랑 앞이랑 비교해서 그 다음 큰수가 나오면 옮기기
 
-1 3 2 / 2 3 1
-1 2 3
-2 1 3
-3 1 2
-3 2 1
-
-flag = 1;
- 3 1 5 2 4
-
-1 5 2 4 / 3
-5 2 4 / 1 3
-2 4 5 / 1 3
-1 2 4 5 / 3
-2 4 5 1 / 3
-4 5 1 2 / 3
-3 4 5 1 2
-2 3 4 5 1
-1 2 3 4 5
-
-
-2개
-
-기준?
-제일 적은 걸로 하기
 
 void	sort_stack(t_stack *stack_a, t_stack *stack_b, int size)
 {
-	if (size <= 3)
+	if (size <= 5)
+	{
+		sort_a_3(stack_a);
+		print(stack_a);
+		print(stack_b);
 		return ;
+	}
 	size = part(stack_a, stack_b, size);
 	sort_stack(stack_a, stack_b, size);
 }
