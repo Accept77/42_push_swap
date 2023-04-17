@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 14:05:11 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/04/12 19:46:44 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/04/17 19:20:57 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,44 +66,50 @@ void	sort_a_3(t_stack *stack)
 
 void	sort_a_5(t_stack *stack_a, t_stack *stack_b, int size)
 {
-	t_list	*tmp_a;
-	t_list	*tmp_b;
-	int		size_b;
-
-	size_b = 0;
 	while (size != 3)
 	{
 		ps_pab(stack_b, stack_a, 'b');
 		size--;
-		size_b++;
 	}
 	sort_a_3(stack_a);
-	while (size_b)
+	while (stack_b->next != NULL)
 	{
-		tmp_a = stack_a->next;
-		tmp_b = stack_b->next;
-		while (tmp_a->next != NULL)
+		if (stack_a->next->data < stack_b->next->data &&
+			stack_a->next->next->data > stack_b->next->data)
 		{
-			if (tmp_a->data > tmp_b->data);
-			끝자리 가면 생각해보기
-			tmp_a = tmp_a->next;
+			ps_rab(stack_a, 'a');
+			ps_pab(stack_a, stack_b, 'a');
 		}
-		size_b--;
+		else // 여기도 수정해야할듯?
+			ps_rab(stack_a, 'a');
+	}
+	if (stack_b->next != NULL) // 2개있을떄 한꺼번에 처리 가능할꺼같은데 하드코딩하면
+	{
+		ps_pab(stack_a, stack_b, 'a');
+		if (stack_a->next->data < stack_a->next->next->data)
+			ps_rab(stack_a, 'a');
+	}
 	}
 }
 
-1 2 3 / 5 4 아에 다 작거나
-3 4 5 / 1 2 이에 다 크거나
-1 4 5 / 3 2 그냥 노말
-1 3 5 / 2 4 중간에 넣어야 하거나
-어쨋든 스택 뒤에 있는거랑 앞이랑 비교해서 그 다음 큰수가 나오면 옮기기
+// 45123
+// 21345
+// 23145
+// 42135
 
+// 1 2 3 / 5 4 아에 다 작거나
+// 3 4 5 / 1 2 이에 다 크거나
+// 1 4 5 / 3 2 그냥 노말
+// 1 3 5 / 2 4 중간에 넣어야 하거나
+// 어쨋든 스택 뒤에 있는거랑 앞이랑 비교해서 그 다음 큰수가 나오면 옮기기
+
+// 4 3 2 1
 
 void	sort_stack(t_stack *stack_a, t_stack *stack_b, int size)
 {
 	if (size <= 5)
 	{
-		sort_a_3(stack_a);
+		sort_a_5(stack_a, stack_b, size);
 		print(stack_a);
 		print(stack_b);
 		return ;
