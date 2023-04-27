@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 14:05:11 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/04/24 18:41:23 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/04/27 20:18:46 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ int	is_max_min(t_stack *stack_a, t_stack *stack_b)
 {
 	int		max_min;
 	int		flag;
+	int		stack_len; // 만약에 int 값보다 큰 수가 들어오면?
 	t_list	*tmp_a;
 
 	flag = 0;
 	tmp_a = stack_a->next;
 	max_min = 0;
+	stack_len = 0;
 	while (tmp_a != NULL)
 	{
 		if (stack_b->next->data > tmp_a->data)
@@ -56,8 +58,9 @@ int	is_max_min(t_stack *stack_a, t_stack *stack_b)
 		else if (stack_b->next->data < tmp_a->data)
 			max_min--;
 		tmp_a = tmp_a->next;
+		stack_len++;
 	}
-	if (max_min == 3 || max_min == -3)
+	if (max_min == stack_len || max_min == -(stack_len))
 		flag++;
 	return (flag);
 }
@@ -136,7 +139,7 @@ void	sort_a_5(t_stack *stack_a, t_stack *stack_b, int size)
 
 // 1 2 3 / 5 4 아에 다 작거나
 // 3 4 5 / 1 2 이에 다 크거나
-// 2 3 4 / 1 5 큰수 작은수 섞여있거나
+// 2 3 4 / 1 5 큰수 작은수 섞여있거나 !!!!!
 // 1 4 5 / 3 2 그냥 노말
 // 1 3 5 / 2 4 중간에 넣어야 하거나
 // 어쨋든 스택 뒤에 있는거랑 앞이랑 비교해서 그 다음 큰수가 나오면 옮기기
