@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:03:40 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/03/31 17:04:50 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/04/30 13:48:28 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack {
 	t_list	*next;
 }	t_stack;
 
-void print(t_stack *stack);
+void print(t_stack *stack); // !!!!
 
 int			ft_printf(const char *str, ...);
 long long	ps_atoi(char *str);
@@ -43,6 +43,7 @@ void		ps_rrab(t_stack *stack, char what);
 
 void		ps_top_reset(t_stack *stack);
 void		sort_stack(t_stack *stack_a, t_stack *stack_b, int size);
+void		sort_a(t_stack *stack_a, t_stack *stack_b, int size);
 
 #endif
  
