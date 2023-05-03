@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:03:40 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/04/30 13:48:28 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/05/03 13:01:50 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ void		sort_stack(t_stack *stack_a, t_stack *stack_b, int size);
 void		sort_a(t_stack *stack_a, t_stack *stack_b, int size);
 
 #endif
- 

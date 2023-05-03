@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 12:58:52 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/04/30 18:21:53 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:14:44 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,18 @@ void	sort_stack(t_stack *stack_a, t_stack *stack_b, int size)
 		return ;
 	}
 	size = part(stack_a, stack_b, size);
+	print(stack_a);
+	print(stack_b);
 	sort_stack(stack_a, stack_b, size);
 }
 
 // 재귀 돌릴떄 고정할 부분 뺴고 돌리는 방법을 생각해보기
 // 재귀에서 a 정렬하고 고정 b에서 가져와서 정렬하기
+// part 함수 완성해보기
+// 재귀를 이해해보기?
+// 재귀를 써야함?
+
+// 5 / 5 로 나뉘면 정렬하는거고
+// 3 / 7 로 나뉘면
+// 3 정렬하고 7을 2개로 나눠서 다시 옮기고 정렬하기
+// sort함수의 조건을 다 바꿔야 함
