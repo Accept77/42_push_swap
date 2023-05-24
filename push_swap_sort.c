@@ -6,13 +6,19 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 19:30:51 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/05/07 19:47:15 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:09:33 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_stack *stack) // 3은 다시 할 필요가 있음?
+void	sort_2(t_stack *stack)
+{
+	if (stack->next->data > stack->next->next->data)
+		ps_sab(stack, 'a');
+}
+
+void	sort_3(t_stack *stack)
 {
 	t_list	*tmp;
 
@@ -27,7 +33,7 @@ void	sort_3(t_stack *stack) // 3은 다시 할 필요가 있음?
 		ps_sab(stack, 'a');
 }
 
-int	is_max_min(t_stack *stack_a, t_stack *stack_b) // 해당 b에 있는 값이 맥스나 민인지 확인
+int	is_max_min(t_stack *stack_a, t_stack *stack_b, int size_a) // 해당 b에 있는 값이 맥스나 민인지 확인
 {
 	int		max_min;
 	int		flag;
@@ -38,7 +44,7 @@ int	is_max_min(t_stack *stack_a, t_stack *stack_b) // 해당 b에 있는 값이 
 	tmp_a = stack_a->next;
 	max_min = 0;
 	stack_len = 0;
-	while (tmp_a != NULL)
+	while (stack_len < size_a)
 	{
 		if (stack_b->next->data > tmp_a->data)
 			max_min++;

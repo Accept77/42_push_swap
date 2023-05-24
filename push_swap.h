@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:03:40 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/05/07 19:46:34 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:07:23 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,13 @@ void		ps_rrab(t_stack *stack, char what);
 void		ps_top_reset(t_stack *stack);
 void		sort_stack(t_stack *stack_a, t_stack *stack_b, int size);
 void		sort_a(t_stack *stack_a, t_stack *stack_b, int size);
+void		sort_2(t_stack *stack);
 void		sort_3(t_stack *stack);
-int			is_max_min(t_stack *stack_a, t_stack *stack_b);
+int			is_max_min(t_stack *stack_a, t_stack *stack_b, int size_a);
 void		rotate_up(t_stack *stack);
 void		rotate_down(t_stack *stack);
+
+void		sort_a(t_stack *stack_a, t_stack *stack_b, int size_a);
+void		sort_a_5(t_stack *stack_a, t_stack *stack_b, int pb_count);
+int			part_a(t_stack *stack_a, t_stack *stack_b, int size);
 #endif
